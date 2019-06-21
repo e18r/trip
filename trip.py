@@ -1,6 +1,7 @@
 #! /usr/bin/python
 
 from random import choice
+from sys import argv
 
 def next(prev):
     if prev == 1:
@@ -25,4 +26,9 @@ def trip(length, last=None):
         trip.append((prev_x + x, prev_y + y))
     return trip
 
-print(trip(2, (2,2)))
+try:
+    last = (int(argv[1]), int(argv[2]))
+    print(trip(2, last))
+except:
+    print('usage: ./trip.py last_x last_y\n\nexample: ./trip.py 7 3')
+
